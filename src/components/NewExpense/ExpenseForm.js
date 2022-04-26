@@ -32,7 +32,7 @@ const ExpenseForm = (props) => {
                 amount: event.target.value
             };
         })*/
-        setEventAmount(event.target.value)
+        setEventAmount(+event.target.value)
     }
     const dateChangeEventHandler = (event) => {
         /*setUserInput((prevState) => {
@@ -49,7 +49,7 @@ const ExpenseForm = (props) => {
         const formValues = {
             title: eventTitle,
             amount: eventAmount,
-            date: eventDate
+            date: new Date(eventDate)
         };
         props.onSaveExpense(formValues);
         setEventTitle('');
