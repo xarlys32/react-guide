@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
@@ -7,7 +7,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const fetchMovieHandler = () => {
+  //Almacenamos como objeto la funcion para usarla como dependencia del useEffect e iniciarla al inicio tambien
+  const fetchMovieHandler = useCallback(() => {
     setIsLoading(true);
     setError(null);
     fetch('https://swapi.dev/api/films/').then((response) => {
@@ -34,7 +35,11 @@ function App() {
     }).finally(() => {
       setIsLoading(false);
     });
-  }
+  });
+
+  useEffect(() => {
+    fetchMovieHandler();
+  }, []);
 
   return (
     <React.Fragment>
