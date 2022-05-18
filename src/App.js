@@ -1,13 +1,22 @@
-import ExpenseItem from "./components/ExpenseItem";
-const hello = () => {
-  return "oooW MEEN"
-};
+import {Route, Routes} from 'react-router-dom'
+import Header from './component/Header';
+import ProductDetail from './component/ProductDetail';
+import Products from './component/Products';
+import Welcome from './component/Welcome';
+
 function App() {
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>Ñee {hello}</p>
-      <ExpenseItem></ExpenseItem>
+      <Header />
+      {/**Routes is the same as switch on version 5 */}
+      <Routes>
+        <Route path='welcome' element={<Welcome />}>
+          {/**This nested version is only for version 6 */}
+          <Route path='newUser' element={<p>Welcome BITCH!</p>}/>
+        </Route>
+        <Route path='/products' element={<Products />} />
+        <Route path='/products/:product' element={<ProductDetail />} />
+      </Routes>
     </div>
   );
 }
