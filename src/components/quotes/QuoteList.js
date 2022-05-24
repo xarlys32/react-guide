@@ -8,10 +8,17 @@ import classes from './QuoteList.module.css';
 const QuoteList = (props) => {
   const history = useHistory()
   const location = useLocation()
+  console.log(history)
+  /*Location contains
+    hash: ""​
+    key: "prt2h9"​
+    pathname: "/quotes"​
+    search: "?sort=asc"​
+    state: undefined*/
   const queryParams = new URLSearchParams(location.search)
   const isAscending = queryParams.get('sort') === 'asc'
   const sortingHandler = () => {
-    history.push(`/quotes?sort=${isAscending ? 'desc' : 'asc'}`)
+    history.push(`${location.pathname}?sort=${isAscending ? 'desc' : 'asc'}`)
   }
   return (
     <Fragment>
