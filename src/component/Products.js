@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
 
 const Products = () => {
     return (
@@ -10,6 +10,7 @@ const Products = () => {
                     <li><NavLink  to="/products/table">Table</NavLink></li>
                 </ul>
             </div>
+            <Outlet />
         </>
     )
 }

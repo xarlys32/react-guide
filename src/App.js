@@ -14,8 +14,9 @@ function App() {
           {/**This nested version is only for version 6 */}
           <Route path='newUser' element={<p>Welcome BITCH!</p>}/>
         </Route>
-        <Route path='/products' element={<Products />} />
-        <Route path='/products/:product' element={<ProductDetail />} />
+        <Route path='/products' element={<Products />} >
+          <Route path='/products/:product' element={<ProductDetail />} />
+        </Route>
       </Routes>
     </div>
   );
