@@ -1,14 +1,13 @@
-import ExpenseItem from "./components/ExpenseItem";
-const hello = () => {
-  return "oooW MEEN"
-};
+import React from 'react';
+import BackwardCounter from './components/BackwardCounter';
+import ForwardCounter from './components/ForwardCounter';
+
 function App() {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-      <p>Ñee {hello}</p>
-      <ExpenseItem></ExpenseItem>
-    </div>
+    <React.Fragment>
+      <ForwardCounter />
+      <BackwardCounter />
+    </React.Fragment>
   );
 }
 
