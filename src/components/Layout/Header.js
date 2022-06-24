@@ -9,7 +9,6 @@ const Header = (props) => {
     const numberOfItems = cartContext.items.reduce((currValue, item) => {
         return currValue + item.amount;
     }, 0);
-    console.log(numberOfItems)
     const openModal = () => {
         props.onShownCart();
     }
@@ -17,7 +16,7 @@ const Header = (props) => {
         <>
             <header className={classes.header}>
                 <h1>Meals</h1>
-                <HeaderCartButton onClick={openModal}/>
+                <HeaderCartButton numberItems={numberOfItems} onClick={openModal}/>
             </header>
             <div className={classes['main-image']}>
                 <img src={meals} alt='myaaa'/>
