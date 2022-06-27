@@ -10,8 +10,8 @@ const Cart = (props) => {
     };
 
     const onRemoveItemHandler = (id) => {
-        cartCtx.deletemItem(id);
-    };
+        cartCtx.deleteItem(id);
+    };console.log(cartCtx.items)
     return (
         <Modal onClose={props.onCloseHandler}>
             <ul className={classes['cart-items']}>
